@@ -1,8 +1,6 @@
-As a customer admiring an artifact, I'd like to be able to see it from a different angle.
+As a customer admiring an artifact, I'd like to be able to hold it so I'm able to see it from a different angle.
 
-As someone with an interest in archeology, I'd like to be able to hold an artifact.
+As the owner of the museum, I don't want people handling one of a kind ancient artifacts So nothing gets broken.
 
-As the owner of the museum, I don't want people handling one of a kind ancient artifacts.
-
-As a sight-seer, I'd like to have a unique momento from my trip to the museum.
+As a sight-seer, I'd like to have a unique momento from my trip to the museum to remember it by.
 

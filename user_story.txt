@@ -11,3 +11,5 @@ S4: As a curator of the museum I'd like to upload new artifacts to the app so th
 S5: As someone who can't physically go to the museum, I'd like to be able to see the artifacts so I can enjoy history from the comfort of my own home.
 
 S6: As a museum visitor, I'd like to be able to take goofy pictures with the artifacts without damaging them so I can show my friends and family.
+
+S7: As a museum curator, I'd like to get feedback on popular artifacts so I can improve the museum layout.

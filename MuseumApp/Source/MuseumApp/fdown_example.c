@@ -1,4 +1,10 @@
-#include "fdown_example.h"
+/* compilation:
+ *    gcc fdown_example.c fdown.c -Wall -Wextra -Wpedantic -lcurl -o fd_ex
+ */
+#include <stdio.h>
+
+#include "fdown.h"
+
 
 int main(int a, char** b){
       if(a < 3)return 1;

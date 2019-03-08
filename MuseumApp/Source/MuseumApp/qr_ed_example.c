@@ -14,6 +14,7 @@
 
 int main(int a, char** b){
       if(a < 2)return 1;
-      printf("%s\n", decode_qr(b[1]));
+      uint8_t* qq;
+      puts((qq = decode_qr(b[1]) ? (char*)qq : "oops! couldn't decode"));
       return 0;
 }

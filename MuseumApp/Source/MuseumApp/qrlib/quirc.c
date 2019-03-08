@@ -133,6 +133,8 @@ static const char *const error_table[] = {
 
 const char *quirc_strerror(quirc_decode_error_t err)
 {
+      #pragma GCC diagnostic ignored "-Wtautological-constant-out-of-range-compare"
+      #pragma GCC diagnostic ignored "-Wtautological-compare"
 	if (err >= 0 && err < sizeof(error_table) / sizeof(error_table[0]))
 		return error_table[err];
 

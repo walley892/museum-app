@@ -113,7 +113,7 @@ int load_jpeg(struct quirc *q, const char *filename)
 	struct jpeg_decompress_struct dinfo;
 	struct my_jpeg_error err;
 	uint8_t *image;
-	int y;
+	unsigned int y;
 
 	if (!infile) {
 		perror("can't open input file");

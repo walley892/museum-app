@@ -1,6 +1,11 @@
-As a customer admiring an artifact, I'd like to be able to hold it so I'm able to see it from a different angle.
+S0: As a customer of the museum, I'd like to be able to point my phone camera at the artifact's description and see an artifact appear on my phone screen.
 
-As the owner of the museum, I don't want people handling one of a kind ancient artifacts So nothing gets broken.
+S1: As a customer admiring an artifact, I'd like to be able to manipulate it so I can view it from all perspectives.
 
-As a sight-seer, I'd like to have a unique momento from my trip to the museum to remember it by.
+S2: As the owner of the museum, I don't want people handling one of a kind ancient artifacts So nothing gets broken.
 
+S3: As a curator of the museum I'd like to upload new artifacts to the app so that visitors will be able to appreciate them.
+
+S4: As someone who can't physically go to the museum, I'd like to be able to see the artifacts so I can enjoy history from the comfort of my own home.
+
+S5: As a museum curator, I'd like to get feedback on popular artifacts so I can improve the museum layout.

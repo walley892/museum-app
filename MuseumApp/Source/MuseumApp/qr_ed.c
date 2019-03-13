@@ -13,12 +13,11 @@ _Bool get_dimensions_png(char* fname, int* wh){
       if(!fp)return 0;
 
       png_structp img = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
-      if(!img)goto cleanup_fp;
       png_infop inf = png_create_info_struct(img);
-      if(!inf)goto cleanup_fp;
+      if(!img || !inf)goto cleanup_fp;
 
       // ... libpng documentation told me to http://www.libpng.org/pub/png/libpng-1.2.5-manual.html
-      if(setjmp(png_jmpbuf(img)))goto cleanup_fp;
+      if(setjmp(png_jmpbuf(img)))goto cleanup_inf;
 
       png_init_io(img, fp);
       png_read_info(img, inf);

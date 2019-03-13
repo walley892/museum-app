@@ -7,7 +7,6 @@
 
 #include "qr_ed.h"
 
-// returns width, height
 _Bool get_dimensions_png(char* fname, int* wh){
       FILE* fp = fopen(fname, "rb");
       if(!fp)return 0;

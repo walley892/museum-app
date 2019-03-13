@@ -43,7 +43,6 @@ uint8_t* decode_qr(char* fname){
       int dim[2] = {200, 500};
       if((png = check_if_png(fname)))
             get_dimensions_png(fname, dim);
-      printf("dim: %i, %i\n", dim[0], dim[1]);
       quirc_resize(qr, dim[0], dim[1]);
       }
 

@@ -6,7 +6,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "latest",
-    "cookie-parser": "latest"
+    "express": "latest"
   }
 }

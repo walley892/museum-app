@@ -1,0 +1,22 @@
+
+
+body {
+ background-color:#FCF9B6;
+}
+
+.main{
+  font-family: "Lucida Console", Monaco, monospace;
+  width: 100%;
+  text-align: center;
+}
+
+.content{
+  font-family: "Lucida Console", Monaco, monospace;
+  background-color:#89C607;
+  text-align:center;
+  color: #1E3504;
+  font-size: 18px;
+  border: 5px solid #376F02;
+  border-style: outset;
+  	margin: 1% 1% 5% 1%;
+}

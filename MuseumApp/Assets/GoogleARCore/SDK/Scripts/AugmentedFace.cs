@@ -33,6 +33,12 @@ namespace GoogleARCore
     /// </summary>
     public partial class AugmentedFace : Trackable
     {
+
+        public override Pose GetCenterPose()
+        {
+            return CenterPose;
+        }
+
         /// <summary>
         /// Construct AugmentedFace from a native handle.
         /// </summary>

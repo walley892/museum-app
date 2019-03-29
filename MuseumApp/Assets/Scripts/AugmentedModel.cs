@@ -10,7 +10,7 @@ public class AugmentedModel : MonoBehaviour
     
     void Start()
     {
-        Anchor anc = _image.CreateAnchor(_image.CenterPose);
+        Anchor anc = _base.CreateAnchor(_base.GetCenterPose());
 
         gameObject.transform.parent = anc.transform;
         gameObject.transform.localPosition = Vector3.zero;
@@ -23,13 +23,26 @@ public class AugmentedModel : MonoBehaviour
         
     }
 
-    static AugmentedModel spawnAugmentedModel(Trackable b, int modelId)
+    void setBase(Trackable b)
     {
         _base = b;
+    }
+
+    void setModelId(int modelId)
+    {
         _modelId = modelId;
+    }
+
+    public static AugmentedModel spawnAugmentedModel(Trackable b, int modelId)
+    {
+        
 
         GameObject obj = new GameObject();
         AugmentedModel model = obj.AddComponent<AugmentedModel>();
+
+        model.setBase(b);
+        model.setModelId(modelId);
+
 
         return model;
     }

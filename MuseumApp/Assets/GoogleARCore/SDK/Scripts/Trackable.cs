@@ -30,6 +30,11 @@ namespace GoogleARCore
     /// </summary>
     public abstract class Trackable
     {
+
+        //ADDED
+        public abstract Pose GetCenterPose();
+
+
         /// <summary>
         /// A native handle for the ARCore trackable.
         /// </summary>

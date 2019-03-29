@@ -21,6 +21,7 @@ int main(int a, char** b){
             puts("oops! couldn't decode any qr codes");
             return 1;
       }
+      printf("%i qr codes found\n", n_qr);
       for(int i = 0; i < n_qr; ++i)
             puts((char*)qq[i]);
       return 0;

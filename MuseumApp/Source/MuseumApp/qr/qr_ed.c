@@ -58,11 +58,9 @@ uint8_t** decode_qr(char* fname, int* n_qr){
       // not enough memory
       if(!qr)return NULL;
 
-      uint8_t* pic;
       int w, h;
-      pic = quirc_begin(qr, &w, &h);
+      quirc_begin(qr, &w, &h);
 
-      // need to populate pic[w,h]
       // load_* return 0 on success
       if(png){
             if(load_png(qr, fname))return NULL;

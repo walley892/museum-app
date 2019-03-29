@@ -31,17 +31,6 @@ _Bool get_dimensions_png(char* fname, int* wh){
       return img && fp && inf;
 }
 
-/*
- * this will be called by the client upon reading a qr code
- * the returned string will then be sent to the endpoint
- * /gen_qr, which will return a url to a qr code image file
- * this image can be fdown'd
- *
- * how good, though, even is the image tracking?
- * could we just load a dummy qr code into mem and use it
- * for tracking of all artifacts? assuming only one's in
- * frame at a time
- */
 uint8_t** decode_qr(char* fname, int* n_qr){
       struct quirc* qr = quirc_new();
 

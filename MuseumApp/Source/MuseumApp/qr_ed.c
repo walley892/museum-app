@@ -77,15 +77,14 @@ uint8_t** decode_qr(char* fname, int* n_qr){
 
       uint8_t** ret = calloc(*n_qr+1, sizeof(uint8_t*));
 
-      for(int i = 0; i < *n_qr; ++i){
+      for(int i = 0, n = 0; i < *n_qr; ++i){
             struct quirc_code code;
             struct quirc_data data;
             quirc_decode_error_t err;
 
-            quirc_extract(qr, 0, &code);
+            quirc_extract(qr, i, &code);
             if(!(err = quirc_decode(&code, &data)))
-                 /*ret = NULL;*/
-                  ret[i] = data.payload;
+                  ret[n++] = data.payload;
       }
 
       quirc_destroy(qr);

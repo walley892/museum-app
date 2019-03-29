@@ -42,7 +42,7 @@ _Bool get_dimensions_png(char* fname, int* wh){
  * for tracking of all artifacts? assuming only one's in
  * frame at a time
  */
-uint8_t** decode_qr(char* fname){
+uint8_t** decode_qr(char* fname, int* n_qr){
       struct quirc* qr = quirc_new();
 
       _Bool png;
@@ -73,22 +73,19 @@ uint8_t** decode_qr(char* fname){
 
       /* actual decoding is done here */
       
-      int n_qr = quirc_count(qr);
+      *n_qr = quirc_count(qr);
 
-      uint8_t** ret = malloc(sizeof(uint8_t*)*(n_qr+1));
+      uint8_t** ret = calloc(*n_qr+1, sizeof(uint8_t*));
 
-      ret[n_qr] = NULL;
-
-      for(int i = 0; i < n_qr; ++i){
+      for(int i = 0; i < *n_qr; ++i){
             struct quirc_code code;
             struct quirc_data data;
             quirc_decode_error_t err;
 
             quirc_extract(qr, 0, &code);
-            if((err = quirc_decode(&code, &data)))
-                 ret = NULL;
-            else ret = data.payload;
-            // printf("got \"%s\"/%i\n", data.payload, data.payload);
+            if(!(err = quirc_decode(&code, &data)))
+                 /*ret = NULL;*/
+                  ret[i] = data.payload;
       }
 
       quirc_destroy(qr);

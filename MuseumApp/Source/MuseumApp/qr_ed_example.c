@@ -15,7 +15,13 @@
 
 int main(int a, char** b){
       if(a < 2)return 1;
-      uint8_t* qq = decode_qr(b[1]);
-      puts((qq) ? (char*)qq : "oops! couldn't decode");
+      int n_qr;
+      uint8_t** qq = decode_qr(b[1], &n_qr);
+      if(!qq || n_qr == 0){
+            puts("oops! couldn't decode any qr codes");
+            return 1;
+      }
+      for(int i = 0; i < n_qr; ++i)
+            puts((char*)qq[i]);
       return 0;
 }

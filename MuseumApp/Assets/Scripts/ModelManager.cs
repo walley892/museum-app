@@ -7,6 +7,7 @@ abstract class ModelManager
 {
     Dictionary<int, GameObject> _cache;
 
+    public abstract int[] availableModelIds();
     public abstract GameObject createModel(int modelId);
 
     public ModelManager()
@@ -26,7 +27,7 @@ abstract class ModelManager
 
     public GameObject createCachedModel(int modelId)
     {
-        if (_cache.ContainsKey(modelId))
+        if (!isCached(modelId))
         {
             throw new KeyNotFoundException("Model not in the cache");
         }

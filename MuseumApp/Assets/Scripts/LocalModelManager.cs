@@ -28,4 +28,9 @@ class LocalModelManager : ModelManager
         cacheModel(modelId, g);
         return g;
     }
+
+    public override int[] availableModelIds()
+    {
+        return new int[] { 1, 2, 3 };
+    }
 }

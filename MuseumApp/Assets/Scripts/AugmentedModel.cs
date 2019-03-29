@@ -5,15 +5,8 @@ using GoogleARCore;
 
 public class AugmentedModel : MonoBehaviour
 {
-    private AugmentedImage _image;
+    private Trackable _base;
     private int _modelId;
-    
-    public void Initalize(AugmentedImage img, int modelId)
-    {
-        _image = img;
-        _modelId = modelId;
-    }
-
     
     void Start()
     {
@@ -27,12 +20,17 @@ public class AugmentedModel : MonoBehaviour
     
     void Update()
     {
-        if (_image == null || _image.TrackingState != TrackingState.Tracking)
-        {
-            return;
-        }
         
     }
 
+    static AugmentedModel spawnAugmentedModel(Trackable b, int modelId)
+    {
+        _base = b;
+        _modelId = modelId;
 
+        GameObject obj = new GameObject();
+        AugmentedModel model = obj.AddComponent<AugmentedModel>();
+
+        return model;
+    }
 }

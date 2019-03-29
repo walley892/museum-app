@@ -30,9 +30,8 @@ public class ARMaster : MonoBehaviour
             {
                 if (!_spawned)
                 {
-                    GameObject obj = new GameObject();
-                    AugmentedModel model = obj.AddComponent<AugmentedModel>();
-                    model.Initalize(img, 0);
+                    AugmentedModel.spawnAugmentedModel(img, 0);
+                    
                     _spawned = true;
                 }
             }

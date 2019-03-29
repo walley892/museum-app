@@ -5,9 +5,14 @@ using UnityEngine;
 
 abstract class ModelManager
 {
+    //Caching for already created artifacts
     Dictionary<int, GameObject> _cache;
 
+
+    //Get the ids of all artifacts that can be rendered in unity
     public abstract int[] availableModelIds();
+
+    //Given the id of a model, return its representation as a Unity GameObject
     public abstract GameObject createModel(int modelId);
 
     public ModelManager()
@@ -15,6 +20,7 @@ abstract class ModelManager
         _cache = new Dictionary<int, GameObject>();
     }
 
+    //Add a spawned model to the cache
     public void cacheModel(int modelId, GameObject obj)
     {
         _cache.Add(modelId, obj);

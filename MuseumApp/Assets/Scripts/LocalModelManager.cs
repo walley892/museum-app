@@ -4,7 +4,7 @@ using UnityEngine;
 
 class LocalModelManager : ModelManager
 {
-
+    //Directory where models are locally stored
     private string _modelDir;
 
     public LocalModelManager(string path) : base()

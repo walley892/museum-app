@@ -18,7 +18,10 @@ public class AugmentedModel : MonoBehaviour
     void Start()
     {
         Anchor anc = _image.CreateAnchor(_image.CenterPose);
+
+        gameObject.transform.parent = anc.transform;
         gameObject.transform.localPosition = Vector3.zero;
+        gameObject.transform.localScale = Vector3.one * 0.1f;
     }
 
     
@@ -28,8 +31,7 @@ public class AugmentedModel : MonoBehaviour
         {
             return;
         }
-
-        //gameObject.transform.position = Vector3.zero;
+        
     }
 
 

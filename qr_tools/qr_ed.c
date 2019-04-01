@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <png.h>
+#include <string.h>
 
 #include "qrlib/quirc.h"
 /* this file has been moved from tests to lib */
@@ -62,7 +63,7 @@ uint8_t** decode_qr(char* fname, int* n_qr){
       
       *n_qr = quirc_count(qr);
 
-      uint8_t** ret = calloc(*n_qr+1, sizeof(uint8_t*));
+      uint8_t** ret = calloc(*n_qr+1, sizeof(uint8_t*)), * tmp;
 
       for(int i = 0, n = 0; i < *n_qr; ++i){
             struct quirc_code code;
@@ -71,7 +72,8 @@ uint8_t** decode_qr(char* fname, int* n_qr){
 
             quirc_extract(qr, i, &code);
             if(!(err = quirc_decode(&code, &data)))
-                  ret[n++] = data.payload;
+                  ret[n++] = memcpy(tmp = malloc(data.payload_len+1),
+                                    data.payload, data.payload_len);
       }
 
       quirc_destroy(qr);

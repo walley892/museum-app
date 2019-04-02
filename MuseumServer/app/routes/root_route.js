@@ -1,8 +1,32 @@
 var path = require('path');
 
-module.exports = function(express, app) {
+module.exports = {
+	route: route,
+	getResponse: getResponse
+}
+
+
+function route(express, app) {
 
 	app.get('/', function(req, res) {
-		res.json({"status" : "ok"});
+
+
+		ans = "ok";
+
+		var promise = new Promise(function(resolve, reject) {
+
+				let response = getResponse(ans);
+				resolve(response);
+		});
+
+		promise.then(function(value) {
+			res.send(value);
+			// expected output: "foo"
+		});
 	});
-};
+}
+
+function getResponse(ans) {
+
+	return {'status' : ans};
+}

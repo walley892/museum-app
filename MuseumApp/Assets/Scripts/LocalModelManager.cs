@@ -6,10 +6,12 @@ class LocalModelManager : ModelManager
 {
     //Directory where models are locally stored
     private string _modelDir;
+    private string _imageDir;
 
-    public LocalModelManager(string path) : base()
+    public LocalModelManager(string modelPath, string imagePath) : base()
     {
-        _modelDir = path;
+        _modelDir = modelPath;
+        _imageDir = imagePath;
     }
 
     public override GameObject createModel(int modelId)
@@ -32,5 +34,10 @@ class LocalModelManager : ModelManager
     public override int[] availableModelIds()
     {
         return new int[] { 1, 2, 3 };
+    }
+
+    public override Texture2D getTrackedImage(int modelId)
+    {
+        return Resources.Load<Texture2D>(_imageDir + "/image_" + modelId);
     }
 }

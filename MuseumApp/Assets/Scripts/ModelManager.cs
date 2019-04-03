@@ -15,6 +15,9 @@ abstract class ModelManager
     //Given the id of a model, return its representation as a Unity GameObject
     public abstract GameObject createModel(int modelId);
 
+    //Given the id of a model, return the image that will trigger its instantiation
+    public abstract Texture2D getTrackedImage(int modelId);
+
     public ModelManager()
     {
         _cache = new Dictionary<int, GameObject>();

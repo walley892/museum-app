@@ -40,6 +40,11 @@ namespace GoogleARCore
         {
         }
 
+        public override Pose GetCenterPose()
+        {
+            return Pose;
+        }
+
         /// <summary>
         /// Gets the pose of the FeaturePoint.
         /// </summary>

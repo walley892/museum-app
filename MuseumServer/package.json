@@ -5,8 +5,11 @@
   "scripts": {
     "start": "node server.js"
   },
+  "main": "server.js",
   "dependencies": {
-    "express": "latest",
-    "cookie-parser": "latest"
+    "express": "latest"
+  },
+  "devDependencies": {
+    "jest": "^24.6.0"
   }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-abstract class ModelManager
+public abstract class ModelManager
 {
     //Caching for already created artifacts
     Dictionary<int, GameObject> _cache;
@@ -14,6 +14,9 @@ abstract class ModelManager
 
     //Given the id of a model, return its representation as a Unity GameObject
     public abstract GameObject createModel(int modelId);
+
+    //Given the id of a model, return the image that will trigger its instantiation
+    public abstract Texture2D getTrackedImage(int modelId);
 
     public ModelManager()
     {
@@ -38,6 +41,9 @@ abstract class ModelManager
             throw new KeyNotFoundException("Model not in the cache");
         }
 
-        return GameObject.Instantiate(_cache[modelId]);
+        GameObject model = GameObject.Instantiate(_cache[modelId]);
+        model.SetActive(true);
+
+        return model;
     }
 }

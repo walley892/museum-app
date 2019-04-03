@@ -35,6 +35,12 @@ namespace GoogleARCore
     /// </summary>
     public class AugmentedImage : Trackable
     {
+
+        public override Pose GetCenterPose()
+        {
+            return CenterPose;
+        }
+
         internal AugmentedImage(IntPtr nativeHandle, NativeSession nativeApi)
             : base(nativeHandle, nativeApi)
         {

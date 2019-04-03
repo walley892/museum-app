@@ -31,6 +31,11 @@ namespace GoogleARCore
     /// </summary>
     public class DetectedPlane : Trackable
     {
+        public override Pose GetCenterPose()
+        {
+            return CenterPose;
+        }
+
         /// <summary>
         /// Construct DetectedPlane from a native handle.
         /// </summary>

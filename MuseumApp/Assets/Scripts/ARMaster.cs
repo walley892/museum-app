@@ -5,14 +5,33 @@ using GoogleARCore;
 
 public class ARMaster : MonoBehaviour
 {
-    private bool _spawned;
-    // Start is called before the first frame update
-    void Start()
+    
+    public ModelManager _modelManager;
+    public AugmentedImageDatabase _trackedImageDatabase;
+
+    private Dictionary<int, AugmentedModel> _spawnedModels;
+
+    void setModelManager(ModelManager m)
     {
-        _spawned = false;
+        _modelManager = m;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        _spawnedModels = new Dictionary<int, AugmentedModel>();
+        setModelManager(new LocalModelManager("artifacts/models", "artifacts/qr_codes"));
+        int[] modelIds = _modelManager.availableModelIds();
+        
+        for(int i = 0; i < modelIds.Length; ++i)
+        {
+            Texture2D img = _modelManager.getTrackedImage(modelIds[i]);
+            string name = "" + modelIds[i];
+            int a = _trackedImageDatabase.AddImage(name, img, 1);
+        }
+        
+    }
+
+    
     void Update()
     {
         
@@ -26,15 +45,32 @@ public class ARMaster : MonoBehaviour
 
         foreach(AugmentedImage img in trackedImages)
         {
-            if(img.TrackingState == TrackingState.Tracking)
+            
+            if(img.TrackingState == TrackingState.Tracking) 
             {
-                if (!_spawned)
+                
+                int modelId = int.Parse(img.Name);
+
+                if (!_spawnedModels.ContainsKey(modelId))
                 {
-                    AugmentedModel.spawnAugmentedModel(img, 0);
                     
-                    _spawned = true;
+                    AugmentedModel m = spawnAugmentedModel(modelId, img);
+
+                    _spawnedModels.Add(modelId, m);
                 }
             }
         }
     }
+
+    public AugmentedModel spawnAugmentedModel(int modelId, Trackable b)
+    {
+        
+        GameObject obj = _modelManager.createModel(modelId);
+        AugmentedModel model = obj.AddComponent<AugmentedModel>();
+        model.setBase(b);
+        model.setModelId(modelId);
+
+        return model;
+    }
+
 }

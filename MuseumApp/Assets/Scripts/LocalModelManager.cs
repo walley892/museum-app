@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class LocalModelManager : ModelManager
+public class LocalModelManager : ModelManager
 {
     //Directory where models are locally stored
     private string _modelDir;
@@ -23,7 +23,7 @@ class LocalModelManager : ModelManager
         }
 
         GameObject g = new GameObject();
-        Material mat = new Material(Shader.Find("Specular"));
+        Material mat = new Material(Shader.Find("ARCore/SpecularWithLightEstimation"));
         g.AddComponent<MeshFilter>().mesh = Resources.Load<Mesh>(_modelDir + "/model_" + modelId);
         g.AddComponent<MeshRenderer>().material = mat;
 
@@ -33,11 +33,16 @@ class LocalModelManager : ModelManager
 
     public override int[] availableModelIds()
     {
-        return new int[] { 1, 2, 3 };
+        return new int[] { 0 };
     }
 
     public override Texture2D getTrackedImage(int modelId)
     {
-        return Resources.Load<Texture2D>(_imageDir + "/image_" + modelId);
+        Texture2D tmp = Resources.Load<Texture2D>(_imageDir + "/image_" + modelId);
+        Texture2D ret = new Texture2D(tmp.width,tmp.height,TextureFormat.RGBA32, false);
+        
+        ret.SetPixels(tmp.GetPixels());
+        ret.Apply();
+        return ret;
     }
 }

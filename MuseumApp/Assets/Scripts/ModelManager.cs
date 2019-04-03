@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-abstract class ModelManager
+public abstract class ModelManager
 {
     //Caching for already created artifacts
     Dictionary<int, GameObject> _cache;

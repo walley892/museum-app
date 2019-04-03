@@ -1,13 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "C:\\Program Files\\Epic Games\\UE_4.21"
-		}
-	],
-	"settings": {
-		"typescript.tsc.autoDetect": "off"
-	}
+    "folders": [
+        {
+            "path": "C:\\Users\\Jwolf\\Documents\\GitHub\\museum-app"
+        }
+    ]
 }

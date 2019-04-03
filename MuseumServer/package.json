@@ -1,0 +1,15 @@
+{
+  "name": "MueseumAppServer",
+  "version": "0.0.1",
+  "description": "Server for the Musuem App",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "express": "latest"
+  },
+  "devDependencies": {
+    "jest": "^24.6.0"
+  }
+}

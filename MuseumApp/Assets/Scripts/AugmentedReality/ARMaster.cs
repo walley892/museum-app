@@ -19,7 +19,7 @@ public class ARMaster : MonoBehaviour
     void Start()
     {
         _spawnedModels = new Dictionary<int, AugmentedModel>();
-        setModelManager(new LocalModelManager("artifacts/models", "artifacts/qr_codes"));
+        setModelManager(new LocalModelManager("artifacts/models", "artifacts/qr_codes", "artifacts/textures"));
         int[] modelIds = _modelManager.availableModelIds();
         
         for(int i = 0; i < modelIds.Length; ++i)

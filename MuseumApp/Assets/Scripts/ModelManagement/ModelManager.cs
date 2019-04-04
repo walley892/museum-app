@@ -21,6 +21,9 @@ public abstract class ModelManager
     //Given the id of a model, return its mesh
     public abstract Mesh getMesh(int modelId);
 
+    //Given the id of a model, return its texture
+    public abstract Texture2D getTexture(int modelId);
+
     public ModelManager()
     {
         _cache = new Dictionary<int, GameObject>();

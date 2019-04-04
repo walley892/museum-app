@@ -41,6 +41,9 @@ public abstract class ModelManager
             throw new KeyNotFoundException("Model not in the cache");
         }
 
-        return GameObject.Instantiate(_cache[modelId]);
+        GameObject model = GameObject.Instantiate(_cache[modelId]);
+        model.SetActive(true);
+
+        return model;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 class LocalModelManager : ModelManager
 {
@@ -21,11 +22,15 @@ class LocalModelManager : ModelManager
         }
 
         GameObject g = new GameObject();
+        Object.DontDestroyOnLoad(g);
         Material mat = new Material(Shader.Find("Specular"));
         g.AddComponent<MeshFilter>().mesh = Resources.Load<Mesh>(_modelDir + "/model_" + modelId);
         g.AddComponent<MeshRenderer>().material = mat;
 
+        g.SetActive(false);
         cacheModel(modelId, g);
-        return g;
+        GameObject h = GameObject.Instantiate(g);
+        h.SetActive(true);
+        return h;
     }
 }

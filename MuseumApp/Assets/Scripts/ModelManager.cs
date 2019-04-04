@@ -26,11 +26,14 @@ abstract class ModelManager
 
     public GameObject createCachedModel(int modelId)
     {
-        if (_cache.ContainsKey(modelId))
+        if (!_cache.ContainsKey(modelId))
         {
             throw new KeyNotFoundException("Model not in the cache");
         }
 
-        return GameObject.Instantiate(_cache[modelId]);
+        GameObject model = GameObject.Instantiate(_cache[modelId]);
+        model.SetActive(true);
+
+        return model;
     }
 }

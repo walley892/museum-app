@@ -26,7 +26,7 @@ public class ARMaster : MonoBehaviour
         {
             Texture2D img = _modelManager.getTrackedImage(modelIds[i]);
             string name = "" + modelIds[i];
-            int a = _trackedImageDatabase.AddImage(name, img, 1);
+            _trackedImageDatabase.AddImage(name, img, 1);
         }
         
     }
@@ -65,7 +65,7 @@ public class ARMaster : MonoBehaviour
     public AugmentedModel spawnAugmentedModel(int modelId, Trackable b)
     {
         
-        GameObject obj = _modelManager.createModel(modelId);
+        GameObject obj = _modelManager.createModel(modelId, true);
         AugmentedModel model = obj.AddComponent<AugmentedModel>();
         model.setBase(b);
         model.setModelId(modelId);

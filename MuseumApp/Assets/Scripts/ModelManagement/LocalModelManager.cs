@@ -14,7 +14,7 @@ public class LocalModelManager : ModelManager
         _imageDir = imagePath;
     }
 
-    public override GameObject createModel(int modelId)
+    public override GameObject createModel(int modelId, bool augmented = false)
     {
 
         if (isCached(modelId))
@@ -23,12 +23,22 @@ public class LocalModelManager : ModelManager
         }
 
         GameObject g = new GameObject();
-        Material mat = new Material(Shader.Find("ARCore/SpecularWithLightEstimation"));
-        g.AddComponent<MeshFilter>().mesh = Resources.Load<Mesh>(_modelDir + "/model_" + modelId);
+        string shader = "Mobile/VertexLit";
+        if (augmented)
+        {
+            shader = "ARCore/SpecularWithLightEstimation";
+        }
+        Material mat = new Material(Shader.Find(shader));
+        g.AddComponent<MeshFilter>().mesh = getMesh(modelId);
         g.AddComponent<MeshRenderer>().material = mat;
 
         cacheModel(modelId, g);
         return g;
+    }
+
+    public override Mesh getMesh(int modelId)
+    {
+        return Resources.Load<Mesh>(_modelDir + "/model_" + modelId);
     }
 
     public override int[] availableModelIds()

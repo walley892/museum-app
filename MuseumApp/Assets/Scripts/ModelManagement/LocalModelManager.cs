@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class LocalModelManager : ModelManager
 {
-    //Directory where models are locally stored
-    private string _modelDir;
-    private string _imageDir;
-    private string _textureDir;
+    //Directory where model data is locally stored
+    private string _baseDir;
 
-    public LocalModelManager(string modelPath, string imagePath, string texPath) : base()
+    public LocalModelManager(string baseDir) : base()
     {
-        _modelDir = modelPath;
-        _imageDir = imagePath;
-        _textureDir = texPath;
+        _baseDir = baseDir;
     }
 
     public override GameObject createModel(int modelId, bool augmented = false)
@@ -49,7 +45,7 @@ public class LocalModelManager : ModelManager
 
     public override Texture2D getTrackedImage(int modelId)
     {
-        Texture2D tmp = Resources.Load<Texture2D>(_imageDir + "/image_" + modelId);
+        Texture2D tmp = Resources.Load<Texture2D>(_baseDir + "qr_codes/image_" + modelId);
         Texture2D ret = new Texture2D(tmp.width,tmp.height,TextureFormat.RGBA32, false);
         
         ret.SetPixels(tmp.GetPixels());
@@ -59,12 +55,12 @@ public class LocalModelManager : ModelManager
 
     public override Mesh getMesh(int modelId)
     {
-        return Resources.Load<Mesh>(_modelDir + "/model_" + modelId);
+        return Resources.Load<Mesh>(_baseDir + "models/model_" + modelId);
     }
 
     public override Texture2D getTexture(int modelId)
     {
-        Texture2D tmp = Resources.Load<Texture2D>(_textureDir + "/texture_" + modelId);
+        Texture2D tmp = Resources.Load<Texture2D>(_baseDir + "textures/texture_" + modelId);
         Texture2D ret = new Texture2D(tmp.width, tmp.height, TextureFormat.RGBA32, false);
 
         ret.SetPixels(tmp.GetPixels());

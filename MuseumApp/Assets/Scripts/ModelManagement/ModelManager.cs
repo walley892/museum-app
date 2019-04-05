@@ -8,15 +8,21 @@ public abstract class ModelManager
     //Caching for already created artifacts
     Dictionary<int, GameObject> _cache;
 
-
     //Get the ids of all artifacts that can be rendered in unity
     public abstract int[] availableModelIds();
 
     //Given the id of a model, return its representation as a Unity GameObject
-    public abstract GameObject createModel(int modelId);
+    //If augmented = true, the gameobject will be created for AR
+    public abstract GameObject createModel(int modelId, bool augmented = false);
 
     //Given the id of a model, return the image that will trigger its instantiation
     public abstract Texture2D getTrackedImage(int modelId);
+
+    //Given the id of a model, return its mesh
+    public abstract Mesh getMesh(int modelId);
+
+    //Given the id of a model, return its texture
+    public abstract Texture2D getTexture(int modelId);
 
     public ModelManager()
     {

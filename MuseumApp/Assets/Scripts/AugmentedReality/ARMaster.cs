@@ -19,14 +19,14 @@ public class ARMaster : MonoBehaviour
     void Start()
     {
         _spawnedModels = new Dictionary<int, AugmentedModel>();
-        setModelManager(new LocalModelManager("artifacts/models", "artifacts/qr_codes"));
+        setModelManager(new LocalModelManager("artifacts/"));
         int[] modelIds = _modelManager.availableModelIds();
         
         for(int i = 0; i < modelIds.Length; ++i)
         {
             Texture2D img = _modelManager.getTrackedImage(modelIds[i]);
             string name = "" + modelIds[i];
-            int a = _trackedImageDatabase.AddImage(name, img, 1);
+            _trackedImageDatabase.AddImage(name, img, 1);
         }
         
     }
@@ -65,7 +65,7 @@ public class ARMaster : MonoBehaviour
     public AugmentedModel spawnAugmentedModel(int modelId, Trackable b)
     {
         
-        GameObject obj = _modelManager.createModel(modelId);
+        GameObject obj = _modelManager.createModel(modelId, true);
         AugmentedModel model = obj.AddComponent<AugmentedModel>();
         model.setBase(b);
         model.setModelId(modelId);

@@ -15,7 +15,7 @@ public class AugmentedModel : MonoBehaviour
         
         gameObject.transform.parent = anc.transform;
         gameObject.transform.localPosition = Vector3.zero;
-        gameObject.transform.localScale = Vector3.one;
+        gameObject.transform.localScale = Vector3.one * 0.002f;
     }
 
     

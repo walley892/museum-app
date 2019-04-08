@@ -1,12 +1,12 @@
 var path = require('path');
 
 module.exports = {
-	info: info,
+	getInfo: getInfo,
 	getResponse: getResponse
 }
 
 
-function info(express, app) {
+function getInfo(express, app) {
 
 	app.get('/getModelInfo', function(req, res) {
 

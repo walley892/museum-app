@@ -55,7 +55,3 @@ crashlytics-build.properties
 
 # DS Files from Mac computers
 .DS_Store
-MuseumServer/.DS_Store
-MuseumServer/.DS_Store
-*.xml
-MuseumServer/.idea/workspace.xml

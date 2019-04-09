@@ -1,26 +1,9 @@
+var path = require('path');
+var fs = require('fs');
+
 module.exports = {
-    saveModel : saveModel,
-    saveTexture : saveTexture
+    ensureDirectoryExistence: ensureDirectoryExistence
 };
-
-
-function saveModel(pid, callback) {
-    pullPlaylist(pid, function(json) {
-        var filePath = 'models/' + pid +'/playlist.json';
-        ensureDirectoryExistence(filePath);
-        fs.writeFileSync(filePath, JSON.stringify(json));
-        callback();
-    });
-}
-
-function saveTexture(pid, callback) {
-    pullPlaylist(pid, function(json) {
-        var filePath = 'textures/' + pid +'/playlist.json';
-        ensureDirectoryExistence(filePath);
-        fs.writeFileSync(filePath, JSON.stringify(json));
-        callback();
-    });
-}
 
 
 function ensureDirectoryExistence(filePath) {

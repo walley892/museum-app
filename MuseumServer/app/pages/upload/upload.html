@@ -114,28 +114,28 @@ body {
 
 
 <div class="container">
-  <form action="upload.php">
+  <form method="POST" enctype="multipart/form-data" action="/uploadArtifacts">
   <div class="row">
     <div class="col-25">
-      <label for="fname">Artifact Name:</label>
+      <label>Artifact Name:</label>
     </div>
     <div class="col-75">
-      <input type="text" id="aname" name="aname" placeholder="Artifact name..">
+      <input type="text" id="name" name="artifactName" placeholder="Artifact name..">
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="subject">Description:</label>
+      <label>Description:</label>
     </div>
     <div class="col-75">
-      <textarea id="description" name="descrition" placeholder="Write something.." style="height:200px"></textarea>
+      <textarea id="description" name="artifactDescription" placeholder="Write something.." style="height:200px"></textarea>
     </div>
   </div>
   <div class="row">
     <div class="col-25">
       <div class="custom-file">
-        <label class="custom-file-label" for="customFile">Upload an Image file:</label>
-      <input type="file" class="custom-file-input" id="customFile">
+        <label class="custom-file-label">Upload a Model file:</label>
+      <input type="file" class="custom-file-input" name="model" multiple>
      </div>
     </div>
   </div>
@@ -143,8 +143,8 @@ body {
   <div class="row">
     <div class="col-25">
       <div class="custom-file">
-        <label class="custom-file-label" for="customFile">Upload a Texture file:</label>
-      <input type="file" class="custom-file-input" id="customFile">
+        <label class="custom-file-label">Upload a Texture file:</label>
+      <input type="file" class="custom-file-input" name="texture" multiple>
      </div>
     </div>
   </div>

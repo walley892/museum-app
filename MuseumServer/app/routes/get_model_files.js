@@ -1,5 +1,3 @@
-var path = require('path');
-
 module.exports = {
 	getFile: getFile,
 	getResponse: getResponse

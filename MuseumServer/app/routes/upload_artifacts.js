@@ -82,6 +82,8 @@ module.exports = function(express, app) {
         qr.addData(id);
         qr.make();
 
+        console.log("Uploaded artifact id: " + id)
+
         callback(qr.createDataURL(15));
     }
 

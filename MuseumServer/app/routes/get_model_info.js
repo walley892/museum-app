@@ -1,9 +1,9 @@
 var path = require('path');
+var database = require('../model/database')
 
 module.exports = {
-	getInfo: getInfo,
-	getResponse: getResponse
-}
+	getInfo: getInfo
+};
 
 
 function getInfo(express, app) {
@@ -11,22 +11,22 @@ function getInfo(express, app) {
 	app.get('/getModelInfo', function(req, res) {
 
 
-		ans = "ok";
+		let artifact_id = req.query.artifact_id;
 
 		var promise = new Promise(function(resolve, reject) {
 
-				let response = getResponse(ans);
-				resolve(response);
+			database.connect(function (client, collection) {
+				database.getArtifact(client, collection, artifact_id, function (response) {
+					resolve(response);
+				});
+
+			});
 		});
 
 		promise.then(function(value) {
-			res.send(value);
+			res.json(value);
 			// expected output: "foo"
 		});
 	});
-}
 
-function getResponse(ans) {
-
-	return {'status' : ans};
 }

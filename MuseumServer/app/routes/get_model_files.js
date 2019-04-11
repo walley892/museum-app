@@ -8,13 +8,12 @@ function getFile(express, app) {
 
 	app.get('/getModelFiles', function(req, res) {
 
-
 		ans = "ok";
 
 		var promise = new Promise(function(resolve, reject) {
 
-				let response = getResponse(ans);
-				resolve(response);
+			let response = getResponse(ans);
+			resolve(response);
 		});
 
 		promise.then(function(value) {
@@ -25,6 +24,8 @@ function getFile(express, app) {
 }
 
 function getResponse(ans) {
+
+
 
 	return {'status' : ans};
 }

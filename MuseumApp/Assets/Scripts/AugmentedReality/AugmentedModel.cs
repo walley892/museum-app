@@ -16,16 +16,17 @@ public class AugmentedModel : MonoBehaviour
         Anchor anc = _base.CreateAnchor(_base.GetCenterPose());
         
         gameObject.transform.parent = anc.transform;
+        gameObject.transform.localRotation = Quaternion.identity;
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localScale = Vector3.one;
 
-        _yRot = 0;
+        _yRot = gameObject.transform.localRotation.eulerAngles.y;
     }
 
     
     void Update()
     {
-        rotateLeft(0.7f);
+        
     }
 
     public void setBase(Trackable b)

@@ -32,6 +32,8 @@ public class LocalModelManager : ModelManager
 
         g.AddComponent<MeshRenderer>().material = mat;
 
+        g.AddComponent<MeshCollider>();
+
         g.GetComponent<Renderer>().material.SetTexture("_MainTex", getTexture(modelId));
 
         cacheModel(modelId, g);

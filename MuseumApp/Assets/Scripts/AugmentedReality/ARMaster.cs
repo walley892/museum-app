@@ -40,20 +40,52 @@ public class ARMaster : MonoBehaviour
             return;
         }
 
+        checkImagesAndSpawnModels();
+        handleTouchInput();
+    }
+
+    public void handleTouchInput()
+    {
+        foreach(Touch touch in Input.touches)
+        {
+            if(touch.phase == TouchPhase.Stationary)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    GameObject g = hit.collider.gameObject;
+
+                    AugmentedModel m = g.GetComponent<AugmentedModel>();
+
+                    if(m != null)
+                    {
+                        m.rotateLeft(1);
+                    }
+                }
+
+            }
+        }
+    }
+
+    public void checkImagesAndSpawnModels()
+    {
         List<AugmentedImage> trackedImages = new List<AugmentedImage>();
         Session.GetTrackables<AugmentedImage>(trackedImages, TrackableQueryFilter.Updated);
 
-        foreach(AugmentedImage img in trackedImages)
+        foreach (AugmentedImage img in trackedImages)
         {
-            
-            if(img.TrackingState == TrackingState.Tracking) 
+
+            if (img.TrackingState == TrackingState.Tracking)
             {
-                
+
                 int modelId = int.Parse(img.Name);
 
                 if (!_spawnedModels.ContainsKey(modelId))
                 {
-                    
+
                     AugmentedModel m = spawnAugmentedModel(modelId, img);
 
                     _spawnedModels.Add(modelId, m);

@@ -4,7 +4,7 @@ const upload = require('../model/upload');
 const database = require('../model/database');
 const qrcode = require('qrcode-generator');
 
-const basePath = process.env.FILE_HOME;
+const basePath = path.join(__dirname, "/../uploads"); //process.env.FILE_HOME;
 const fileVersion = "/v1/";
 
 module.exports = function(express, app) {

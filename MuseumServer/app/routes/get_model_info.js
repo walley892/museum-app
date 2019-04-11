@@ -8,25 +8,30 @@ module.exports = {
 
 function getInfo(express, app) {
 
-	app.get('/getModelInfo', function(req, res) {
+	app.get('/getArtifactInfo', function(req, res) {
 
 
 		let artifact_id = req.query.artifact_id;
 
-		var promise = new Promise(function(resolve, reject) {
+		if(artifact_id.length != 24) {
+			res.send({found: false});
+		}
+		else {
+			let promise = new Promise(function(resolve, reject) {
 
-			database.connect(function (client, collection) {
-				database.getArtifact(client, collection, artifact_id, function (response) {
-					resolve(response);
+				database.connect(function (client, collection) {
+					database.getArtifact(client, collection, artifact_id, function (response) {
+						resolve(response);
+					});
+
 				});
-
 			});
-		});
 
-		promise.then(function(value) {
-			res.json(value);
-			// expected output: "foo"
-		});
+			promise.then(function(value) {
+				res.json(value);
+				// expected output: "foo"
+			});
+		}
 	});
 
 }

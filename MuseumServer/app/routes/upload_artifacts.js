@@ -28,9 +28,9 @@ module.exports = function(express, app) {
 
         form.on('field', (name, field) => {
                 console.log('Field', name, field);
-                if(name==artifact.name)
+                if(name=="artifactName")
                     artifact.name = field;
-                else if(name==artifact.description) {
+                else if(name=="artifactDescription") {
                     artifact.description = field;
                 }
         }).on('fileBegin', (name, file) => {
@@ -48,9 +48,7 @@ module.exports = function(express, app) {
 
                 upload.ensureDirectoryExistence(path);
                 file.path = path;
-            });
-
-        form.on('file', (name, file) => {
+            }).on('file', (name, file) => {
                 console.log('Uploaded file', name, file)
             })
             .on('aborted', () => {
@@ -59,8 +57,10 @@ module.exports = function(express, app) {
             .on('error', (err) => {
                 console.error('Error', err)
                 throw err
-            })
-            .on('end', () => {
+            });
+
+
+            form.on('end', () => {
                 database.connect(function (client, collection) {
                     database.addArtifact(client, collection, artifact, function (id) {
 
@@ -76,13 +76,13 @@ module.exports = function(express, app) {
     });
 
     function generateQR(id, callback) {
-        var typeNumber = 0;
-        var errorCorrectionLevel = 'M';
+        let typeNumber = 0;
+        let errorCorrectionLevel = 'M';
         let qr = qrcode(typeNumber, errorCorrectionLevel);
         qr.addData(id);
         qr.make();
 
-        callback(qr.createDataURL());
+        callback(qr.createDataURL(15));
     }
 
 };

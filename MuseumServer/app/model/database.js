@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
 const assert = require('assert');
 
 var mongourl = process.env.MONGO_URL;
@@ -9,7 +10,8 @@ const dbName = 'museum-app';
 
 module.exports = {
     connect: connect,
-    addArtifact: addArtifact
+    addArtifact: addArtifact,
+    getArtifact: getArtifact
 };
 
 
@@ -43,6 +45,26 @@ function addArtifact(client, collection, artifact, callback) {
                 callback(id);
                 endConnection(client);
             })
+        }
+    );
+}
+
+
+function getArtifact(client, collection, artifact_id, callback) {
+    var objectId = new ObjectID.createFromHexString(artifact_id);
+
+    let returnVal = {found : false};
+
+    collection.findOne(
+        { _id:  objectId},
+        function (err, document) {
+
+            if(!err) {
+                returnVal.found = true;
+                returnVal.document = document;
+            }
+            endConnection(client);
+            callback(returnVal);
         }
     );
 }

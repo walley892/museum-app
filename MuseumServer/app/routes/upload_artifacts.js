@@ -4,7 +4,8 @@ const upload = require('../model/upload');
 const database = require('../model/database');
 const qrcode = require('qrcode-generator');
 
-const basePath = process.env.FILE_HOME + "/v1/";
+const basePath = path.join(__dirname, "/../uploads"); //process.env.FILE_HOME;
+const fileVersion = "/v1/";
 
 module.exports = function(express, app) {
 
@@ -38,12 +39,12 @@ module.exports = function(express, app) {
                 let path;
 
                 if(name=="model") {
-                    path = basePath + 'models/' + file.name.toString();
-                    artifact.modelPath = path;
+                    artifact.modelPath = fileVersion + 'models/' + file.name.toString();
+                    path = basePath + artifact.modelPath;
                 }
                 else if(name=="texture") {
-                    path = basePath + 'textures/' + file.name.toString();
-                    artifact.texturePath = path;
+                    artifact.texturePath = fileVersion + 'textures/' + file.name.toString();
+                    path = basePath + artifact.texturePath;
                 }
 
                 upload.ensureDirectoryExistence(path);
@@ -55,7 +56,7 @@ module.exports = function(express, app) {
                 console.error('Request aborted by the user')
             })
             .on('error', (err) => {
-                console.error('Error', err)
+                console.error('Error', err);
                 throw err
             });
 
@@ -81,6 +82,8 @@ module.exports = function(express, app) {
         let qr = qrcode(typeNumber, errorCorrectionLevel);
         qr.addData(id);
         qr.make();
+
+        console.log("Uploaded artifact id: " + id)
 
         callback(qr.createDataURL(15));
     }

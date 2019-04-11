@@ -43,7 +43,7 @@ module.exports = function(express, app) {
                     path = basePath + artifact.modelPath;
                 }
                 else if(name=="texture") {
-                    artifact.texturePath = basePath + fileVersion + 'textures/' + file.name.toString();
+                    artifact.texturePath = fileVersion + 'textures/' + file.name.toString();
                     path = basePath + artifact.texturePath;
                 }
 

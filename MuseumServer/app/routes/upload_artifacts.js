@@ -1,14 +1,25 @@
 const path = require('path');
 const formidable = require('formidable');
 const upload = require('../model/upload');
+const database = require('../model/database');
+const qrcode = require('qrcode-generator');
 
-const basePath = __dirname + "/../../uploads/v1/";
+const basePath = process.env.FILE_HOME + "/v1/";
 
 module.exports = function(express, app) {
 
     app.post('/uploadArtifacts', function(req, res) {
-        let artifactName = "test";
-        let artifactDescription = "test";
+
+        app.set("view engine", "pug");
+
+        app.set("views", path.join(__dirname, '/../views'));
+
+        let artifact = {
+            name : "test",
+            description : "test",
+            modelPath : "test",
+            texturePath : "test",
+            };
 
         var form = new formidable.IncomingForm();
 
@@ -17,28 +28,27 @@ module.exports = function(express, app) {
 
         form.on('field', (name, field) => {
                 console.log('Field', name, field);
-                if(name=="artifactName")
-                    xartifactName = field;
-                else if(name=="artifactDescription") {
-                    artifactDescription = field;
+                if(name==artifact.name)
+                    artifact.name = field;
+                else if(name==artifact.description) {
+                    artifact.description = field;
                 }
-        });
-
-        form.on('fileBegin', (name, file) => {
+        }).on('fileBegin', (name, file) => {
 
                 let path;
-                let __dir_name = "../"
 
                 if(name=="model") {
                     path = basePath + 'models/' + file.name.toString();
+                    artifact.modelPath = path;
                 }
                 else if(name=="texture") {
                     path = basePath + 'textures/' + file.name.toString();
+                    artifact.texturePath = path;
                 }
 
                 upload.ensureDirectoryExistence(path);
                 file.path = path;
-            })
+            });
 
         form.on('file', (name, file) => {
                 console.log('Uploaded file', name, file)
@@ -51,8 +61,28 @@ module.exports = function(express, app) {
                 throw err
             })
             .on('end', () => {
-                res.end()
+                database.connect(function (client, collection) {
+                    database.addArtifact(client, collection, artifact, function (id) {
+
+                        generateQR(id, function (url) {
+                            res.render("uploaded", {
+                                data_url: url
+                            });
+                        });
+                    });
+                });
+                //res.send("Artifact added!");
             })
     });
+
+    function generateQR(id, callback) {
+        var typeNumber = 0;
+        var errorCorrectionLevel = 'M';
+        let qr = qrcode(typeNumber, errorCorrectionLevel);
+        qr.addData(id);
+        qr.make();
+
+        callback(qr.createDataURL());
+    }
 
 };

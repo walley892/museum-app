@@ -6,6 +6,12 @@ This folder contains the scripts required to run the server side of the app.
 
 * Run ```npm install```
 
+* Add the following environment variables:
+
+    1. MONGO_URL  as the mongo connection url you'll be using
+    2. FILE_HOME  as the root directory where uploaded files live
+
+
 ### Running 
 
 To run ```sudo npm start```.

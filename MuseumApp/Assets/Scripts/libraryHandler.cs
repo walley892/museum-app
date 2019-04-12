@@ -32,6 +32,7 @@ public class libraryHandler : MonoBehaviour
         back_button.GetComponentInChildren<Text>().text = "Back";
         back_button.transform.SetParent(GameObject.Find("Button Panel").transform);
         back_button.enabled = true;
+        back_button.name = "BackButton";
 
 
     }

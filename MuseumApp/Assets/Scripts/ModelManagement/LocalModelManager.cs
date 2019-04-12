@@ -26,9 +26,15 @@ public class LocalModelManager : ModelManager
         Material mat = new Material(Shader.Find("ARCore/SpecularWithLightEstimation"));
         g.AddComponent<MeshFilter>().mesh = Resources.Load<Mesh>(_modelDir + "/model_" + modelId);
         g.AddComponent<MeshRenderer>().material = mat;
+        g.SetActive(false);
+        GameObject.DontDestroyOnLoad(g);
 
         cacheModel(modelId, g);
-        return g;
+
+        GameObject model = GameObject.Instantiate(g);
+        model.SetActive(true);
+
+        return model;
     }
 
     public override int[] availableModelIds()

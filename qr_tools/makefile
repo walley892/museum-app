@@ -8,6 +8,9 @@ all: qr
 qr: $(CSRC)
 	gcc $(CSRC) $(CFLAGS) -o qr
 
+tests: qr_tests.c qr_ed.c qr_ed.h 
+	gcc $(CFLAGS) qr_tests.c -lcunit -o tests
+
 
 clean:
-	rm -f qr
+	rm -f qr tests

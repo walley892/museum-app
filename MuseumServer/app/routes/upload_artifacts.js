@@ -62,19 +62,23 @@ module.exports = function(express, app) {
 
 
             form.on('end', () => {
-                database.connect(function (client, collection) {
-                    database.addArtifact(client, collection, artifact, function (id) {
 
-                        generateQR(id, function (url) {
-                            res.render("uploaded", {
-                                data_url: url
-                            });
-                        });
-                    });
-                });
-                //res.send("Artifact added!");
             })
     });
+
+
+    function processArtifact() {
+        database.connect(function (client, collection) {
+            database.addArtifact(client, collection, artifact, function (id) {
+
+                generateQR(id, function (url) {
+                    res.render("uploaded", {
+                        data_url: url
+                    });
+                });
+            });
+        });
+    }
 
     function generateQR(id, callback) {
         let typeNumber = 0;

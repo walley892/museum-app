@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1772147192650458, guid: c10877f7cd5764de18d46d7b777d1faa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114451889682527732, guid: c10877f7cd5764de18d46d7b777d1faa,
         type: 3}
@@ -195,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &393636227
 Transform:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1248447649449928, guid: cf498fc35b538884db557f7a9a2c0ef9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4461716624848968, guid: cf498fc35b538884db557f7a9a2c0ef9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,13 +375,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1715717104}
   - component: {fileID: 1715717103}
+  - component: {fileID: 1715717105}
   m_Layer: 0
   m_Name: ARMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1715717103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338aa803b5e02344a96451a8d5e8c9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obj: {fileID: 2377026084071411441, guid: 58f11dd9994bb124a8342b8eb7e7bdb3, type: 3}
 --- !u!4 &1715717104
 Transform:
   m_ObjectHideFlags: 0
@@ -409,3 +409,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1715717105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715717102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e5f1bf1ae7c2d44bc5aef2fd5fb297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trackedImageDatabase: {fileID: 11400000, guid: 18dcdc116cd372948a1fb0411e646bb4,
+    type: 2}

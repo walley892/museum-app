@@ -16,6 +16,12 @@ void png_dimension_tst(){
       CU_ASSERT_TRUE(wh[0] == 270 && wh[1] == 270);
 }
 
+void qr_read_tst(){
+      int n_qr;
+      uint8_t** codes = decode_qr("codes/qr_nice.png", &n_qr);
+      CU_ASSERT_TRUE(n_qr == 1 && strcmp((char*)*codes, "http://bit.ly/GiraDischi") == 0);
+}
+
 /* */
 
 /* The main() function for setting up and running the tests.
@@ -39,6 +45,7 @@ int main()
    /* add the tests to Suite */
    if (
           (!CU_add_test(Suite, "png_dimension_tst", png_dimension_tst))
+        ||(!CU_add_test(Suite, "qr_read_tst", qr_read_tst))
       )
    {
       CU_cleanup_registry();

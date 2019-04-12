@@ -4,7 +4,8 @@ const upload = require('../model/upload');
 const database = require('../model/database');
 const qrcode = require('qrcode-generator');
 
-const basePath = process.env.FILE_HOME + "/v1/";
+const basePath = path.join(__dirname, "/../uploads"); //process.env.FILE_HOME;
+const fileVersion = "/v1/";
 
 module.exports = function(express, app) {
 
@@ -38,12 +39,12 @@ module.exports = function(express, app) {
                 let path;
 
                 if(name=="model") {
-                    path = basePath + 'models/' + file.name.toString();
-                    artifact.modelPath = path;
+                    artifact.modelPath = fileVersion + 'models/' + file.name.toString();
+                    path = basePath + artifact.modelPath;
                 }
                 else if(name=="texture") {
-                    path = basePath + 'textures/' + file.name.toString();
-                    artifact.texturePath = path;
+                    artifact.texturePath = fileVersion + 'textures/' + file.name.toString();
+                    path = basePath + artifact.texturePath;
                 }
 
                 upload.ensureDirectoryExistence(path);
@@ -55,25 +56,29 @@ module.exports = function(express, app) {
                 console.error('Request aborted by the user')
             })
             .on('error', (err) => {
-                console.error('Error', err)
+                console.error('Error', err);
                 throw err
             });
 
 
             form.on('end', () => {
-                database.connect(function (client, collection) {
-                    database.addArtifact(client, collection, artifact, function (id) {
 
-                        generateQR(id, function (url) {
-                            res.render("uploaded", {
-                                data_url: url
-                            });
-                        });
-                    });
-                });
-                //res.send("Artifact added!");
             })
     });
+
+
+    function processArtifact() {
+        database.connect(function (client, collection) {
+            database.addArtifact(client, collection, artifact, function (id) {
+
+                generateQR(id, function (url) {
+                    res.render("uploaded", {
+                        data_url: url
+                    });
+                });
+            });
+        });
+    }
 
     function generateQR(id, callback) {
         let typeNumber = 0;

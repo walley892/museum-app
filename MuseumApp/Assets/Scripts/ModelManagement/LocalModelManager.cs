@@ -31,13 +31,19 @@ public class LocalModelManager : ModelManager
         g.AddComponent<MeshFilter>().mesh = getMesh(modelId);
 
         g.AddComponent<MeshRenderer>().material = mat;
+        g.SetActive(false);
+        GameObject.DontDestroyOnLoad(g);
 
         g.AddComponent<MeshCollider>();
 
         g.GetComponent<Renderer>().material.SetTexture("_MainTex", getTexture(modelId));
 
         cacheModel(modelId, g);
-        return g;
+
+        GameObject model = GameObject.Instantiate(g);
+        model.SetActive(true);
+
+        return model;
     }
 
     public override int[] availableModelIds()

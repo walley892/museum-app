@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<style>
+*{
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+h2{
+  text-align: center;
+}
+
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+body {
+ background-color:#FCF9B6;
+}
+
+.main{
+  font-family: "Lucida Console", Monaco, monospace;
+  width: 100%;
+  text-align: center;
+}
+
+.content{
+  font-family: "Lucida Console", Monaco, monospace;
+  background-color:#89C607;
+  text-align:center;
+  color: #1E3504;
+  font-size: 18px;
+  border: 5px solid #376F02;
+  border-style: outset;
+  	margin: 1% 1% 5% 1%;
+}
+
+.header{
+  background-color: #B40404;
+  text-align: center;
+  padding: 1%;
+}
+.heading{
+  text-align: center;
+  color: black;
+  font-family: "Verdana",serif;
+  font-size: 18px;
+
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+<img src="logo.jpg" height="100"/>
+<img src="topimages.jpg" width="1000" height="100" />
+</div>
+
+
+
+<div class="container">
+  <form method="POST" enctype="multipart/form-data" action="/uploadArtifacts">
+  <div class="row">
+    <div class="col-25">
+      <label>Artifact Name:</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="name" name="artifactName" placeholder="Artifact name..">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label>Description:</label>
+    </div>
+    <div class="col-75">
+      <textarea id="description" name="artifactDescription" placeholder="Write something.." style="height:200px"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <div class="custom-file">
+        <label class="custom-file-label">Upload a Model file:</label>
+      <input type="file" class="custom-file-input" name="model" multiple>
+     </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-25">
+      <div class="custom-file">
+        <label class="custom-file-label">Upload a Texture file:</label>
+      <input type="file" class="custom-file-input" name="texture" multiple>
+     </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="submit" value="Submit form!">
+  </div>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "qr_ed.h"
+
 #include <CUnit/CUnit.h>
 #include <CUnit/Basic.h>
 
@@ -8,8 +10,10 @@
 /* Runs a test input that *should* pass and produce an int result
  */
 
-void test0(){
-      CU_ASSERT_TRUE(1);
+void png_dimension_tst(){
+      int wh[2];
+      get_dimensions_png("codes/qr_nice.png", wh);
+      CU_ASSERT_TRUE(wh[0] == 270 && wh[1] == 270);
 }
 
 /* */
@@ -34,7 +38,7 @@ int main()
 
    /* add the tests to Suite */
    if (
-          (!CU_add_test(Suite, "test0", test0))
+          (!CU_add_test(Suite, "png_dimension_tst", png_dimension_tst))
       )
    {
       CU_cleanup_registry();

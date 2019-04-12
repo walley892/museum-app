@@ -8,6 +8,14 @@
 #include <CUnit/Basic.h>
 
 
+int fsz(char* fn){
+      FILE* fp = fopen(fn, "r");
+      if(!fp)return -1;
+      int sz = 0;
+      while(fgetc(fp) != EOF)++sz;
+      return sz;
+}
+
 /* Runs a test input that *should* pass and produce an int result
  */
 
@@ -19,20 +27,16 @@ void dl_file_txt_tst(){
       int len = getline(&ln, &sz, fp);
       ln[len-1] = 0;
       fclose(fp);
+      /* checking fsz to ensure no other bytes have been dl'd */
+      _Bool ret = strcmp("this is a sample file", ln) == 0 && fsz(".tmp_out_f") == 22;
       remove(".tmp_out_f");
-      _Bool ret = strcmp("this is a sample file", ln) == 0;
       free(ln);
       CU_ASSERT_TRUE(ret);
 }
 
 void dl_file_sz_tst(){
       dl_file("https://upload.wikimedia.org/wikipedia/en/e/eb/University_at_Buffalo_seal.svg", ".tmp_out_f", NULL);
-      _Bool ret;
-      FILE* fp = fopen(".tmp_out_f", "r");
-      ret = fp;
-      int sz = 0;
-      while(fgetc(fp) != EOF)++sz;
-      ret &= sz == 89253;
+      _Bool ret = fsz(".tmp_out_f") == 89253;
       remove(".tmp_out_f");
       CU_ASSERT_TRUE(ret);
 }

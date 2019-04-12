@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AugmentedReality.unity
     guid: a61baaf451efb9d488ce1141a113dcf4
+  - enabled: 1
+    path: Assets/UITest/Examples/TestableGameScene.unity
+    guid: cf4b10a3abc1a406b82c6e856ad8899f
   m_configObjects: {}

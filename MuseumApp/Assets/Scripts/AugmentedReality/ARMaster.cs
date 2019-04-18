@@ -57,12 +57,12 @@ public class ARMaster : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     GameObject g = hit.collider.gameObject;
-
-                    AugmentedModel m = g.GetComponent<AugmentedModel>();
+                    
+                    ModelController m = g.GetComponent<ModelController>();
 
                     if(m != null)
                     {
-                        m.rotateLeft(1);
+                        m.Action();
                     }
                 }
 

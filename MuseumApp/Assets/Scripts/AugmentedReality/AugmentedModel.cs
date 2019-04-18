@@ -1,15 +1,19 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleARCore;
 
-public class AugmentedModel : MonoBehaviour
+public class AugmentedModel : ModelController
 {
     private Transform _base;
 
     private int _modelId;
 
     private float _yRot;
+
+	GameObject[] _controlls;
+	
+	GameObject _controlPrefab;
 
     void Start()
     {
@@ -19,9 +23,22 @@ public class AugmentedModel : MonoBehaviour
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localScale = Vector3.one;
 
+        setControlle(this);
+
         _yRot = gameObject.transform.localRotation.eulerAngles.y;
     }
+    public override void Action()
+    {
+        if(_controlls == null)
+        {
+            spawnControlls();
+        }
+        else
+        {
+            unspawnControlls();
+        }
 
+    }
     
     void Update()
     {
@@ -54,4 +71,23 @@ public class AugmentedModel : MonoBehaviour
         rotateLeft(-degs);
     }
     
+	public void spawnControlls(){
+		_controlls = new GameObject[2];
+		_controlls[0] = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		_controlls[1] = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        RotationController c1 = _controlls[0].AddComponent<RotationController>();
+        c1.setDirection(Direction.left);
+        c1.setControlle(this);
+        RotationController c2 = _controlls[1].AddComponent<RotationController>();
+        c2.setDirection(Direction.right);
+        c2.setControlle(this);
+		
+	}
+	
+	public void unspawnControlls(){
+		GameObject.Destroy(_controlls[0]);
+		GameObject.Destroy(_controlls[1]);
+		_controlls = null;
+	}
+	
 }

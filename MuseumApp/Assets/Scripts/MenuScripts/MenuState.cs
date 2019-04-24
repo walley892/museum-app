@@ -12,15 +12,17 @@ public static class MenuState
 
     static MenuState(){
         _manager = new LocalModelManager("Models");
-        _english = false;
+        _english = true;
     }
 
     public static bool english(){
         return _english;
     }
 
-    public static void setLanguage(bool english){
-        _english = english;
+    public static void toggleLanguage(){
+        _english = !_english;
+
+        
     }
 
     public static GameObject getModel(int modelID){

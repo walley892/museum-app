@@ -11,16 +11,18 @@ public static class MenuState
     private static bool _english;
 
     static MenuState(){
-        _manager = new LocalModelManager("Models","TrackedImages");
-        _english = false;
+        _manager = new LocalModelManager("artifacts/");
+        _english = true;
     }
 
     public static bool english(){
         return _english;
     }
 
-    public static void setLanguage(bool english){
-        _english = english;
+    public static void toggleLanguage(){
+        _english = !_english;
+
+
     }
 
     public static GameObject getModel(int modelID){

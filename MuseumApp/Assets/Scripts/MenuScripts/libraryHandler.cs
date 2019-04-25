@@ -78,10 +78,4 @@ public class libraryHandler : MonoBehaviour
         Destroy(GameObject.Find("Library Artifact"));
     }
 
-
-
-    public void LoadByIndex(int sceneIndex){
-        SceneManager.LoadScene(sceneIndex);
-    }
-
 }

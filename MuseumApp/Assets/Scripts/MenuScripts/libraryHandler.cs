@@ -8,33 +8,16 @@ public class libraryHandler : MonoBehaviour
 {
 
     public Button button;
+    public GameObject Main;
     public GameObject Menu;
     public GameObject UI;
     //private MenuState MenuState;
 
+    private bool Lib_pop = false;
 
     private void Awake() {
 
         //MenuState = new MenuState;
-
-        for (int model_index = 0; model_index < 3; model_index++){ // REPLACE 3 WITH THE NUMBER OF MODELS IN DATABASE
-            Button lib_button = Instantiate(button);
-            int temp = model_index;
-            lib_button.onClick.AddListener(() => View_Model(temp));
-            lib_button.GetComponentInChildren<Text>().text += (model_index + 1).ToString(); // REPLACE LATER WITH ARTIFACT NAME
-
-            lib_button.transform.SetParent(GameObject.Find("Button Panel").transform);
-            lib_button.enabled = true;
-        }
-
-        Button back_button = Instantiate(button);
-        back_button.onClick.AddListener(() => LoadByIndex(0));
-        back_button.GetComponentInChildren<Text>().text = "Back";
-        back_button.transform.SetParent(GameObject.Find("Button Panel").transform);
-        back_button.enabled = true;
-        back_button.name = "BackButton";
-
-
     }
 
     // Start is called before the first frame update
@@ -49,6 +32,34 @@ public class libraryHandler : MonoBehaviour
         
     }
 
+
+    public void populateLibrary(){
+
+        if (!Lib_pop){
+
+            for (int model_index = 0; model_index < 3; model_index++){ // REPLACE 3 WITH THE NUMBER OF MODELS IN DATABASE
+                Button lib_button = Instantiate(button);
+                int temp = model_index;
+                lib_button.onClick.AddListener(() => View_Model(temp));
+                lib_button.GetComponentInChildren<Text>().text += (model_index + 1).ToString(); // REPLACE LATER WITH ARTIFACT NAME
+
+                lib_button.transform.SetParent(GameObject.Find("Button Panel").transform);
+                lib_button.enabled = true;
+            }
+
+            Button back_button = Instantiate(button);
+            back_button.onClick.AddListener(() => Main.SetActive(true));
+            back_button.onClick.AddListener(() => Menu.SetActive(false));
+            back_button.GetComponentInChildren<Text>().text = "Back";
+            back_button.transform.SetParent(GameObject.Find("Button Panel").transform);
+            back_button.enabled = true;
+            back_button.name = "BackButton";
+
+        }
+
+        Lib_pop = true;
+
+    }
 
     public void View_Model(int model_index){
     GameObject artifact;

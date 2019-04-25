@@ -11,7 +11,7 @@ public static class MenuState
     private static bool _english;
 
     static MenuState(){
-        _manager = new LocalModelManager("Models");
+        _manager = new LocalModelManager("artifacts/");
         _english = true;
     }
 
@@ -22,7 +22,7 @@ public static class MenuState
     public static void toggleLanguage(){
         _english = !_english;
 
-        
+
     }
 
     public static GameObject getModel(int modelID){

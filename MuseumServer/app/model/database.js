@@ -11,7 +11,8 @@ const dbName = 'museum-app';
 module.exports = {
     connect: connect,
     addArtifact: addArtifact,
-    getArtifact: getArtifact
+    getArtifact: getArtifact,
+    getArtifacts: getArtifacts
 };
 
 
@@ -62,6 +63,23 @@ function getArtifact(client, collection, artifact_id, callback) {
             if(!err) {
                 returnVal.found = true;
                 returnVal.document = document;
+            }
+            endConnection(client);
+            callback(returnVal);
+        }
+    );
+}
+
+function getArtifacts(client, collection, callback) {
+
+    let returnVal = {found : false};
+
+    collection.find({}).toArray(
+        function (err, documents) {
+
+            if(!err) {
+                returnVal.found = true;
+                returnVal.documents = documents;
             }
             endConnection(client);
             callback(returnVal);

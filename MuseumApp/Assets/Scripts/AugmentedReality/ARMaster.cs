@@ -19,14 +19,14 @@ public class ARMaster : MonoBehaviour
     void Start()
     {
         _spawnedModels = new Dictionary<int, AugmentedModel>();
-        setModelManager(new LocalModelManager("artifacts/models", "artifacts/qr_codes"));
+        setModelManager(new LocalModelManager("artifacts/"));
         int[] modelIds = _modelManager.availableModelIds();
         
         for(int i = 0; i < modelIds.Length; ++i)
         {
             Texture2D img = _modelManager.getTrackedImage(modelIds[i]);
             string name = "" + modelIds[i];
-            int a = _trackedImageDatabase.AddImage(name, img, 1);
+            _trackedImageDatabase.AddImage(name, img, 1);
         }
         
     }
@@ -40,20 +40,52 @@ public class ARMaster : MonoBehaviour
             return;
         }
 
+        checkImagesAndSpawnModels();
+        handleTouchInput();
+    }
+
+    public void handleTouchInput()
+    {
+        foreach(Touch touch in Input.touches)
+        {
+            if(touch.phase == TouchPhase.Stationary)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    GameObject g = hit.collider.gameObject;
+
+                    AugmentedModel m = g.GetComponent<AugmentedModel>();
+
+                    if(m != null)
+                    {
+                        m.rotateLeft(1);
+                    }
+                }
+
+            }
+        }
+    }
+
+    public void checkImagesAndSpawnModels()
+    {
         List<AugmentedImage> trackedImages = new List<AugmentedImage>();
         Session.GetTrackables<AugmentedImage>(trackedImages, TrackableQueryFilter.Updated);
 
-        foreach(AugmentedImage img in trackedImages)
+        foreach (AugmentedImage img in trackedImages)
         {
-            
-            if(img.TrackingState == TrackingState.Tracking) 
+
+            if (img.TrackingState == TrackingState.Tracking)
             {
-                
+
                 int modelId = int.Parse(img.Name);
 
                 if (!_spawnedModels.ContainsKey(modelId))
                 {
-                    
+
                     AugmentedModel m = spawnAugmentedModel(modelId, img);
 
                     _spawnedModels.Add(modelId, m);
@@ -65,7 +97,7 @@ public class ARMaster : MonoBehaviour
     public AugmentedModel spawnAugmentedModel(int modelId, Trackable b)
     {
         
-        GameObject obj = _modelManager.createModel(modelId);
+        GameObject obj = _modelManager.createModel(modelId, true);
         AugmentedModel model = obj.AddComponent<AugmentedModel>();
         model.setBase(b);
         model.setModelId(modelId);

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f51fbba7-1aec-40f9-a94b-4752aef53967" name="Default Changelist" comment="" />
+    <list default="true" id="42f0fda6-edf7-47e1-aa9c-803456a079e7" name="Default Changelist" comment="Refactor code for tests">
+      <change afterPath="$PROJECT_DIR$/tests/files/a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/files/b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/server.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -11,143 +19,127 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="381" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/get_model_info.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="2" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/routes/root_test.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/442_webpage.css">
+        <entry file="file://$PROJECT_DIR$/tests/routes/upload_artifacts.test.js">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/root_route.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/upload_artifacts.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/get_models.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="315">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/server.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/model/database.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/get_model_files.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/files/a">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/files/b">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/routes/upload_artifacts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="77" column="19" lean-forward="true" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>__dir_name</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="develop" />
+        <entry key="$PROJECT_DIR$/.." value="Artifact_Upload" />
       </map>
     </option>
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$/.." source="develop-server" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$/.." source="master" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/routes/get_model_info.js" />
-        <option value="$PROJECT_DIR$/tests/route_test.test.js" />
         <option value="$PROJECT_DIR$/app/routes/index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/app/routes/get_model_info.js" />
+        <option value="$PROJECT_DIR$/app/routes/get_model_files.js" />
+        <option value="$PROJECT_DIR$/app/model/upload.js" />
+        <option value="$PROJECT_DIR$/app/pages/upload/upload.html" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/app/views/uploaded/uploaded.pug" />
         <option value="$PROJECT_DIR$/app/routes/root_route.js" />
-        <option value="$PROJECT_DIR$/tests/routes/root_test.test.js" />
+        <option value="$PROJECT_DIR$/app/views/uploaded.pug" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/tests/server.test.js" />
+        <option value="$PROJECT_DIR$/app/routes/upload_artifacts.js" />
+        <option value="$PROJECT_DIR$/app/model/database.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/MuseumServer.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="816" />
+    <option name="height" value="797" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,7 +156,48 @@
               <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
+              <item name="textures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
@@ -175,28 +208,26 @@
               <item name="MuseumServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="MuseumServer" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tests/routes" />
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app/pages" />
+      <recent name="$PROJECT_DIR$/app/views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -211,35 +242,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.root_test.test.js">
-    <configuration name="root_test.test.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.server.test.js">
+    <configuration name="server.test.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST_FILE" />
-      <test-file value="$PROJECT_DIR$/tests/routes/root_test.test.js" />
+      <test-file value="$PROJECT_DIR$/tests/server.test.js" />
       <method v="2" />
     </configuration>
-    <configuration name="route_test.test.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
       <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST_FILE" />
-      <test-file value="$PROJECT_DIR$/tests/route_test.test.js" />
-      <method v="2" />
-    </configuration>
-    <configuration name="root_route.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="root_route.js" working-dir="$PROJECT_DIR$/app/routes">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.root_test.test.js" />
-        <item itemvalue="Node.js.root_route.js" />
-        <item itemvalue="Jest.route_test.test.js" />
+        <item itemvalue="Jest.server.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -248,137 +271,285 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f51fbba7-1aec-40f9-a94b-4752aef53967" name="Default Changelist" comment="" />
-      <created>1554225001251</created>
+      <changelist id="42f0fda6-edf7-47e1-aa9c-803456a079e7" name="Default Changelist" comment="" />
+      <created>1554751579852</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1554225001251</updated>
-      <workItem from="1554225003661" duration="5065000" />
-      <workItem from="1554322536574" duration="1000" />
+      <updated>1554751579852</updated>
+      <workItem from="1554751583242" duration="4439000" />
+      <workItem from="1554776290866" duration="1338000" />
+      <workItem from="1554777668375" duration="1809000" />
+      <workItem from="1554938296764" duration="4240000" />
+      <workItem from="1554944317909" duration="167000" />
+      <workItem from="1554944523172" duration="731000" />
+      <workItem from="1554945497024" duration="532000" />
+      <workItem from="1554946107142" duration="8465000" />
+      <workItem from="1555035526264" duration="907000" />
     </task>
-    <task id="LOCAL-00001" summary="Added initial test script.">
-      <created>1554229622458</created>
+    <task id="LOCAL-00001" summary="Bugfix for routes that stopped working">
+      <created>1554752380372</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1554229622458</updated>
+      <updated>1554752380372</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Refactor code">
+      <created>1554753136633</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1554753136633</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added code that handles file uploads&#10;&#10;Also refactored existing code.">
+      <created>1554779385086</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554779385086</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add code that pushes data to mongo">
+      <created>1554955959608</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1554955959608</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactor code for tests">
+      <created>1555035917368</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555035917368</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="route_test_test_js - 2019.04.02 at 13h 34m 00s.xml">
-      <configuration name="route_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 21h 54m 39s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="route_test_test_js - 2019.04.02 at 13h 34m 44s.xml">
-      <configuration name="route_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 21h 56m 46s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="route_test_test_js - 2019.04.02 at 13h 44m 23s.xml">
-      <configuration name="route_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 21h 57m 18s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="root_test_test_js - 2019.04.02 at 14h 04m 26s.xml">
-      <configuration name="root_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 22h 06m 39s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="root_test_test_js - 2019.04.02 at 14h 12m 19s.xml">
-      <configuration name="root_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 22h 08m 40s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="root_test_test_js - 2019.04.02 at 14h 12m 39s.xml">
-      <configuration name="root_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 22h 10m 01s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="root_test_test_js - 2019.04.02 at 14h 13m 31s.xml">
-      <configuration name="root_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 22h 11m 24s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="root_test_test_js - 2019.04.02 at 14h 14m 26s.xml">
-      <configuration name="root_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 22h 12m 52s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="root_test_test_js - 2019.04.02 at 14h 15m 17s.xml">
-      <configuration name="root_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 22h 13m 32s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="root_test_test_js - 2019.04.02 at 14h 16m 26s.xml">
-      <configuration name="root_test.test.js" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="server_test_js - 2019.04.11 at 22h 14m 04s.xml">
+      <configuration name="server.test.js" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5066000" />
+    <option name="totallyTimeSpent" value="26144000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24242425" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25299507" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32872927" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32872927" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49213162" weight="0.32765958" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49356222" weight="0.33333334" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3277311" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32872927" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49964765" weight="0.32765958" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5064378" side_tool="true" weight="0.33333334" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49284694" weight="0.32624114" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="3" side_tool="true" visible="true" weight="0.35407725" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added initial test script." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added initial test script." />
+    <MESSAGE value="Bugfix for routes that stopped working" />
+    <MESSAGE value="Refactor code" />
+    <MESSAGE value="Added code that handles file uploads&#10;&#10;Also refactored existing code." />
+    <MESSAGE value="Add code that pushes data to mongo" />
+    <MESSAGE value="Refactor code for tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor code for tests" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/tests/server.test.js</url>
+          <line>43</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MuseumServer$server_test_js.info" NAME="server.test.js Coverage Results" MODIFIED="1555034920549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/routes/get_model_info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/app/pages/upload/upload.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/root_route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/upload_artifacts.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/get_models.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/v1/uploads/textures/contacts.txt" />
     <entry file="file://$PROJECT_DIR$/app/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="2" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+        <state relative-caret-position="165">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/app/pages/upload/upload.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="16" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/upload.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongo_client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="232" column="10" selection-start-line="232" selection-start-column="10" selection-end-line="232" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/routes/root_test.test.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/root_route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="180">
+          <caret line="12" column="62" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/442_webpage.css">
+    <entry file="file://$PROJECT_DIR$/app/routes/get_models.js">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/get_model_info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/uploaded.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/upload/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="122" column="53" selection-start-line="122" selection-start-column="41" selection-end-line="122" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/routes/get_model_files.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/routes/upload_artifacts.test.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/server.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/get_model_files.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/files/a">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/files/b">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/upload_artifacts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="77" column="19" lean-forward="true" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

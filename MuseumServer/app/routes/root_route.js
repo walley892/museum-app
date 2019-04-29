@@ -9,20 +9,8 @@ module.exports = {
 function route(express, app) {
 
 	app.get('/', function(req, res) {
-
-
-		ans = "ok";
-
-		var promise = new Promise(function(resolve, reject) {
-
-				let response = getResponse(ans);
-				resolve(response);
-		});
-
-		promise.then(function(value) {
-			res.send(value);
-			// expected output: "foo"
-		});
+		app.use( express.static( __dirname + '/../pages/upload' ));
+		res.sendFile( path.join( __dirname, '/../pages/upload', 'upload.html' ));
 	});
 }
 

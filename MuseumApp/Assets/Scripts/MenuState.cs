@@ -11,7 +11,7 @@ public static class MenuState
     private static bool _english;
 
     static MenuState(){
-        _manager = new LocalModelManager("Models","TrackedImages");
+        _manager = new LocalModelManager("artifacts/");
         _english = false;
     }
 

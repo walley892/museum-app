@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GoogleARCore;
+
+public enum Buttons {Left, Right}
 
 public class AugmentedModel : ModelController
 {
@@ -11,9 +14,9 @@ public class AugmentedModel : ModelController
 
     private float _yRot;
 
-	GameObject[] _controlls;
-	
-	GameObject _controlPrefab;
+    GameObject controlMenu;
+
+    GameObject _controlPrefab;
 
     void Start()
     {
@@ -29,7 +32,7 @@ public class AugmentedModel : ModelController
     }
     public override void Action()
     {
-        if(_controlls == null)
+        if(controlMenu == null)
         {
             spawnControlls();
         }
@@ -71,23 +74,85 @@ public class AugmentedModel : ModelController
         rotateLeft(-degs);
     }
     
-	public void spawnControlls(){
-		_controlls = new GameObject[2];
-		_controlls[0] = GameObject.CreatePrimitive(PrimitiveType.Cube);
-		_controlls[1] = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        RotationController c1 = _controlls[0].AddComponent<RotationController>();
-        c1.setDirection(Direction.left);
-        c1.setControlle(this);
-        RotationController c2 = _controlls[1].AddComponent<RotationController>();
-        c2.setDirection(Direction.right);
-        c2.setControlle(this);
-		
+    public void scale(float amt)
+    {
+        gameObject.transform.localScale += Vector3.one*amt;
+    }
+
+	public void spawnControlls()
+    {
+        controlMenu = new GameObject();
+
+        Canvas canv = controlMenu.AddComponent<Canvas>();
+        canv.renderMode = RenderMode.ScreenSpaceOverlay;
+        controlMenu.AddComponent<CanvasScaler>();
+        controlMenu.AddComponent<GraphicRaycaster>();
+        spawnButton(Buttons.Left);
+        //spawnButton(Buttons.Right);
 	}
+
+    public void spawnButton(Buttons b)
+    {
+        GameObject buttonObj = new GameObject();
+        buttonObj.transform.parent = controlMenu.transform;
+
+        buttonObj.name = "Button Object";
+
+        Button button = buttonObj.AddComponent<Button>();
+
+
+        if (b == Buttons.Left)
+        {
+            button.onClick.AddListener(() => rotateLeft(5));
+        }
+        else
+        {
+            button.onClick.AddListener(() => rotateRight(5));
+        }
+
+        GameObject textObj = new GameObject();
+        textObj.name = "Button";
+        textObj.transform.parent = buttonObj.transform.parent;
+        
+        Text text = textObj.AddComponent<Text>();
+
+        text.text = "Right";
+
+        if (b == Buttons.Left)
+        {
+            text.text = "Left";
+        }
+
+        text.font = (Font)Resources.Load("fonts/Roboto-Regular");
+        text.fontSize = 200;
+
+
+        Vector3 pos = new Vector3(300, -500, -300);
+        
+        if(b == Buttons.Left)
+        {
+            pos = new Vector3(-100, -500, 0);
+        }
+
+        RectTransform rectTransform;
+
+        rectTransform = buttonObj.AddComponent<RectTransform>();
+        rectTransform.localPosition = pos;
+        rectTransform.sizeDelta = new Vector2(800, 400);
+
+        rectTransform = textObj.GetComponent<RectTransform>();
+        rectTransform.localPosition = pos;
+        rectTransform.sizeDelta = new Vector2(800, 400);
+    }
+     
+    void placeControlls()
+    {
+
+    }
 	
 	public void unspawnControlls(){
-		GameObject.Destroy(_controlls[0]);
-		GameObject.Destroy(_controlls[1]);
-		_controlls = null;
+        Destroy(controlMenu);
+        controlMenu = null;
 	}
-	
+
 }

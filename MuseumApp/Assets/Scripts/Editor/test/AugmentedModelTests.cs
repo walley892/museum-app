@@ -57,7 +57,7 @@ namespace Testing
             AugmentedModel model = modelGameObj.AddComponent<AugmentedModel>();
 
 
-            float expectedRotation = 0;
+            float expectedRotation = 360;
 
             for (int i = 0; i < 100; ++i)
             {

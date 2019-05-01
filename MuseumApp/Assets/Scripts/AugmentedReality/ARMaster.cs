@@ -11,6 +11,8 @@ public class ARMaster : MonoBehaviour
 
     private Dictionary<int, AugmentedModel> _spawnedModels;
 
+    private AugmentedModel _activeModel;
+
     void setModelManager(ModelManager m)
     {
         _modelManager = m;
@@ -48,7 +50,8 @@ public class ARMaster : MonoBehaviour
     {
         foreach(Touch touch in Input.touches)
         {
-            if(touch.phase == TouchPhase.Stationary)
+
+            if(touch.phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
 
@@ -58,15 +61,36 @@ public class ARMaster : MonoBehaviour
                 {
                     GameObject g = hit.collider.gameObject;
                     
-                    ModelController m = g.GetComponent<ModelController>();
+                    AugmentedModel m = g.GetComponent<AugmentedModel>();
 
                     if(m != null)
                     {
-                        m.Action();
+                        _activeModel = m;
                     }
                 }
 
             }
+            
+            if(touch.phase == TouchPhase.Moved)
+            {
+                if(_activeModel != null)
+                {
+                    float rotAmt = touch.deltaPosition.x;
+
+                    float scaleAmt = touch.deltaPosition.y;
+
+                    if (Mathf.Abs(rotAmt) > Mathf.Abs(scaleAmt))
+                        _activeModel.rotateRight(rotAmt * touch.deltaTime);
+                    else
+                        _activeModel.scale(scaleAmt * touch.deltaTime * 0.001f);
+                }
+            }
+
+            if(touch.phase == TouchPhase.Ended)
+            {
+                _activeModel = null;
+            }
+
         }
     }
 
@@ -104,5 +128,4 @@ public class ARMaster : MonoBehaviour
 
         return model;
     }
-
 }

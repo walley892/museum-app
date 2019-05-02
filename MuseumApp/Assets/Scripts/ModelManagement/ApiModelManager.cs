@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using art_dl;
 
-public class LocalModelManager : ModelManager
+public class ApiModelManager : ModelManager
 {
     //Directory where model data is locally stored
     private string _baseDir;
 
-    public LocalModelManager(string baseDir) : base()
+    public ApiModelManager(string baseDir) : base()
     {
         _baseDir = baseDir;
     }
@@ -48,7 +49,8 @@ public class LocalModelManager : ModelManager
 
     public override string[] availableModelIds()
     {
-        return new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" };
+        artifact_dl dl = new artifact_dl("", "");
+        return dl.get_all_models();
     }
 
     public override Texture2D getTrackedImage(int modelId)
@@ -63,11 +65,17 @@ public class LocalModelManager : ModelManager
 
     public override Mesh getMesh(int modelId)
     {
+        artifact_dl dl = new artifact_dl(modelId, "models/");
+        dl.get_model();
+
         return Resources.Load<Mesh>(_baseDir + "models/model_" + modelId);
     }
 
     public override Texture2D getTexture(int modelId)
     {
+        artifact_dl dl = new artifact_dl(modelId, "textures/");
+        dl.get_texture();
+
         Texture2D tmp = Resources.Load<Texture2D>(_baseDir + "textures/texture_" + modelId);
         Texture2D ret = new Texture2D(tmp.width, tmp.height, TextureFormat.RGBA32, false);
 

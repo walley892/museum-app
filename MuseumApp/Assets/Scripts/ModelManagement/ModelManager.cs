@@ -9,7 +9,7 @@ public abstract class ModelManager
     Dictionary<int, GameObject> _cache;
 
     //Get the ids of all artifacts that can be rendered in unity
-    public abstract int[] availableModelIds();
+    public abstract string[] availableModelIds();
 
     //Given the id of a model, return its representation as a Unity GameObject
     //If augmented = true, the gameobject will be created for AR

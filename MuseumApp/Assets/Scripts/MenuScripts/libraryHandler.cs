@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -66,12 +67,27 @@ public class libraryHandler : MonoBehaviour
 
     artifact = MenuState.getModel(model_index);
     artifact.transform.position = new Vector3(0.0f, 3.0f, 0.0f);
-    artifact.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+    float[] maxscale = {0,0,0};
+    maxscale[0] = 1/artifact.GetComponent<MeshFilter>().mesh.bounds.size.x;
+    maxscale[1] = 3/artifact.GetComponent<MeshFilter>().mesh.bounds.size.y;
+    maxscale[2] = 1/artifact.GetComponent<MeshFilter>().mesh.bounds.size.z;
+    artifact.transform.localScale = Vector3.one * maxscale.Min();
+    artifact.AddComponent<Rotter>().rot = new Vector3(0, 5.0f, 0);
     artifact.name = "Library Artifact";
 
     Menu.SetActive(false);
     UI.SetActive(true);
 
+    }
+
+    public void ZoomIn(){
+        Camera.main.transform.localPosition = new Vector3(0, 3.0f, 3.0f);
+        Camera.main.transform.Rotate(-15,0,0);
+    }
+
+    public void ZoomOut(){
+        Camera.main.transform.localPosition = new Vector3(0, 3.0f, 6.0f);
+        Camera.main.transform.Rotate(15,0,0);
     }
 
     public void Destroy_Artifact(){

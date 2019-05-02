@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,9 +46,9 @@ public class LocalModelManager : ModelManager
         return model;
     }
 
-    public override string[] availableModelIds()
+    public override int[] availableModelIds()
     {
-        return new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" };
+        return new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
     }
 
     public override Texture2D getTrackedImage(int modelId)

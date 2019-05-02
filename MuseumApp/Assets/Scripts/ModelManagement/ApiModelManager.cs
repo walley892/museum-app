@@ -47,10 +47,11 @@ public class ApiModelManager : ModelManager
         return model;
     }
 
-    public override string[] availableModelIds()
+    public override int[] availableModelIds()
     {
         artifact_dl dl = new artifact_dl("", "");
-        return dl.get_all_models();
+        //return dl.get_all_models();
+        return new int[] { };
     }
 
     public override Texture2D getTrackedImage(int modelId)
@@ -65,7 +66,7 @@ public class ApiModelManager : ModelManager
 
     public override Mesh getMesh(int modelId)
     {
-        artifact_dl dl = new artifact_dl(modelId, "models/");
+        artifact_dl dl = new artifact_dl("", "models/");
         dl.get_model();
 
         return Resources.Load<Mesh>(_baseDir + "models/model_" + modelId);
@@ -73,7 +74,7 @@ public class ApiModelManager : ModelManager
 
     public override Texture2D getTexture(int modelId)
     {
-        artifact_dl dl = new artifact_dl(modelId, "textures/");
+        artifact_dl dl = new artifact_dl("", "textures/");
         dl.get_texture();
 
         Texture2D tmp = Resources.Load<Texture2D>(_baseDir + "textures/texture_" + modelId);

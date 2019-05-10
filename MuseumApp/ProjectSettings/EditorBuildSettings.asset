@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AugmentedReality.unity
     guid: fd1128e06a727d14ca90248dbe8dcb66
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Library.unity
     guid: 5a74771d0079d6a45921f876873f36d2
-  - enabled: 1
-    path: Assets/UITest/Examples/TestableGameScene.unity
-    guid: cf4b10a3abc1a406b82c6e856ad8899f
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

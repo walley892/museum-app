@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js"
   },
-  "main": "server.js",
+  "main": "app.js",
   "dependencies": {
     "assert": "latest",
     "express": "latest",
@@ -15,7 +15,9 @@
     "qrcode-generator": "^1.4.3"
   },
   "devDependencies": {
+    "html-validator": "^4.0.2",
     "jest": "^24.6.0",
-    "request": "latest"
+    "request": "latest",
+    "supertest": "^4.0.2"
   }
 }

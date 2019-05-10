@@ -11,6 +11,8 @@ public class ARMaster : MonoBehaviour
 
     private Dictionary<int, AugmentedModel> _spawnedModels;
 
+    private AugmentedModel _activeModel;
+
     void setModelManager(ModelManager m)
     {
         _modelManager = m;
@@ -21,14 +23,14 @@ public class ARMaster : MonoBehaviour
         _spawnedModels = new Dictionary<int, AugmentedModel>();
         setModelManager(new LocalModelManager("artifacts/"));
         int[] modelIds = _modelManager.availableModelIds();
-        
-        for(int i = 0; i < modelIds.Length; ++i)
+
+        for (int i = 0; i < modelIds.Length; ++i)
         {
-            Texture2D img = _modelManager.getTrackedImage(modelIds[i]);
-            string name = "" + modelIds[i];
+            Texture2D img = _modelManager.getTrackedImage(i);
+            string name = "" + i;
             _trackedImageDatabase.AddImage(name, img, 1);
         }
-        
+
     }
 
     
@@ -48,7 +50,8 @@ public class ARMaster : MonoBehaviour
     {
         foreach(Touch touch in Input.touches)
         {
-            if(touch.phase == TouchPhase.Stationary)
+
+            if(touch.phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
 
@@ -57,23 +60,44 @@ public class ARMaster : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     GameObject g = hit.collider.gameObject;
-
+                    
                     AugmentedModel m = g.GetComponent<AugmentedModel>();
 
                     if(m != null)
                     {
-                        m.rotateLeft(1);
+                        _activeModel = m;
                     }
                 }
 
             }
+            
+            if(touch.phase == TouchPhase.Moved)
+            {
+                if(_activeModel != null)
+                {
+                    float rotAmt = touch.deltaPosition.x;
+
+                    float scaleAmt = touch.deltaPosition.y;
+
+                    if (Mathf.Abs(rotAmt) > Mathf.Abs(scaleAmt))
+                        _activeModel.rotateRight(rotAmt * touch.deltaTime);
+                    else
+                        _activeModel.scale(scaleAmt * touch.deltaTime * 0.009f);
+                }
+            }
+
+            if(touch.phase == TouchPhase.Ended)
+            {
+                _activeModel = null;
+            }
+
         }
     }
 
     public void checkImagesAndSpawnModels()
     {
         List<AugmentedImage> trackedImages = new List<AugmentedImage>();
-        Session.GetTrackables<AugmentedImage>(trackedImages, TrackableQueryFilter.Updated);
+        Session.GetTrackables<AugmentedImage>(trackedImages, TrackableQueryFilter.All);
 
         foreach (AugmentedImage img in trackedImages)
         {
@@ -83,9 +107,9 @@ public class ARMaster : MonoBehaviour
 
                 int modelId = int.Parse(img.Name);
 
+
                 if (!_spawnedModels.ContainsKey(modelId))
                 {
-
                     AugmentedModel m = spawnAugmentedModel(modelId, img);
 
                     _spawnedModels.Add(modelId, m);
@@ -104,5 +128,4 @@ public class ARMaster : MonoBehaviour
 
         return model;
     }
-
 }

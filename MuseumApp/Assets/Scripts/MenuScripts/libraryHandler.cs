@@ -38,7 +38,7 @@ public class libraryHandler : MonoBehaviour
 
         if (!Lib_pop){
 
-            for (int model_index = 0; model_index < 3; model_index++){ // REPLACE 3 WITH THE NUMBER OF MODELS IN DATABASE
+            for (int model_index = 0; model_index < 12; model_index++){ // REPLACE 3 WITH THE NUMBER OF MODELS IN DATABASE
                 Button lib_button = Instantiate(button);
                 int temp = model_index;
                 lib_button.onClick.AddListener(() => View_Model(temp));
